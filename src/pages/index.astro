@@ -1,0 +1,120 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="hero">
+				<h1>Goutham Patley</h1>
+				<p class="subtitle">Software Engineer — Distributed Systems & Reliability</p>
+				<p class="location">📍 Sunnyvale, CA</p>
+			</div>
+
+			<div class="intro">
+				<p>
+					I went from a <strong>startup with 100M users</strong> to <strong>AWS managing 1M+ instances</strong>. 
+					I build systems that scale, survive, and stay boring at 3am.
+				</p>
+				<p>
+					Currently at <strong>AWS</strong> on the BigMac team (Lambda), building large-scale health systems 
+					and automated incident response. Previously at <strong>Hike Messenger</strong>, where we shipped 
+					India's first UPI on chat.
+				</p>
+			</div>
+
+			<div class="sections">
+				<h2>Recent Writing</h2>
+				<p>
+					I write about distributed systems, reliability engineering, and lessons learned building 
+					infrastructure at scale.
+				</p>
+				<p class="cta">
+					<a href="/blog" class="button">Read my blog →</a>
+				</p>
+			</div>
+
+			<div class="sections">
+				<h2>What I Do</h2>
+				<ul>
+					<li><strong>Grey Failure Detection:</strong> Finding problems before users complain</li>
+					<li><strong>Automated Remediation:</strong> Reducing incident time from 40 minutes to 5 minutes</li>
+					<li><strong>Large-Scale Health Systems:</strong> Making 1M+ instances understandable</li>
+				</ul>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		text-align: center;
+		padding: 3em 0;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 2em;
+	}
+	.hero h1 {
+		font-size: 2.5em;
+		margin: 0 0 0.3em;
+		color: var(--black);
+	}
+	.subtitle {
+		font-size: 1.2em;
+		color: var(--accent);
+		margin: 0 0 0.5em;
+		font-weight: 500;
+	}
+	.location {
+		color: #666;
+		margin: 0;
+	}
+	.intro {
+		font-size: 1.1em;
+		line-height: 1.8;
+		max-width: 700px;
+		margin: 0 auto 3em;
+	}
+	.intro p {
+		margin-bottom: 1.2em;
+	}
+	.sections {
+		max-width: 700px;
+		margin: 0 auto 3em;
+	}
+	.sections h2 {
+		font-size: 1.5em;
+		margin-bottom: 0.8em;
+		color: var(--black);
+	}
+	.sections p {
+		margin-bottom: 1.5em;
+		line-height: 1.7;
+	}
+	.sections ul {
+		line-height: 2;
+	}
+	.cta {
+		margin-top: 1.5em;
+	}
+	.button {
+		display: inline-block;
+		padding: 0.6em 1.2em;
+		background: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 500;
+	}
+	.button:hover {
+		opacity: 0.9;
+	}
+</style>
