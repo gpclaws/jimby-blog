@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Grey Failure Detector Demo"
+	description="Interactive demonstration of grey failure detection in distributed systems — built from AWS Lambda scale experience"
+	pubDate={new Date('February 16 2026')}
+>
+	<p class="lead">
+		An interactive visualization that demonstrates why traditional health checks miss the failures 
+		that hurt users most. Built from real experience managing health systems at AWS Lambda scale (~1M instances).
+	</p>
+
+	<div class="demo-container">
+		<iframe 
+			src="/demos/grey-failure-detector.html" 
+			width="100%" 
+			height="800px"
+			frameborder="0"
+			style="border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+			title="Grey Failure Detector Interactive Demo">
+		</iframe>
+	</div>
+
+	<div class="demo-info">
+		<h2>🎯 What This Teaches</h2>
+		
+		<p><strong>Grey Failure:</strong> When a system appears healthy to monitoring but performs poorly for actual users.</p>
+		
+		<p><strong>The Problem:</strong> Traditional health checks are binary (healthy/unhealthy) but real-world performance exists on a spectrum.</p>
+		
+		<p><strong>The Solution:</strong> Statistical monitoring that compares node performance against baseline metrics.</p>
+
+		<h2>🎮 How to Use</h2>
+		<ol>
+			<li><strong>Watch the baseline</strong> — Observe healthy nodes processing requests</li>
+			<li><strong>Select a node</strong> — Click on any node in the cluster view</li>
+			<li><strong>Inject failure</strong> — Choose failure type and intensity, then inject</li>
+			<li><strong>Compare detection</strong> — Watch how traditional vs statistical monitoring responds</li>
+			<li><strong>Observe the gap</strong> — Traditional health checks stay green while users suffer</li>
+		</ol>
+
+		<h2>📊 Real-World Context</h2>
+		<blockquote>
+			<p>
+				"At AWS Lambda scale managing ~1M instances, grey failures caused more customer impact 
+				than complete outages because they went undetected for hours while traditional monitoring 
+				showed 'all systems green'."
+			</p>
+		</blockquote>
+
+		<p>
+			This demo simulates the core concepts behind the statistical outlier detection systems 
+			used in production cloud infrastructure at companies like AWS, Google, and Microsoft.
+		</p>
+
+		<h2>🧠 Key Concepts Demonstrated</h2>
+		
+		<div class="concepts-grid">
+			<div class="concept">
+				<h3>❌ Traditional Health Checks</h3>
+				<ul>
+					<li><strong>Binary logic:</strong> Healthy or Unhealthy only</li>
+					<li><strong>Simple checks:</strong> TCP/HTTP connectivity test</li>
+					<li><strong>Blind spot:</strong> Misses performance degradation</li>
+					<li><strong>Slow detection:</strong> 30+ seconds typical</li>
+				</ul>
+			</div>
+			
+			<div class="concept">
+				<h3>✅ Grey Failure Detection</h3>
+				<ul>
+					<li><strong>Multi-dimensional:</strong> Performance analysis across metrics</li>
+					<li><strong>Statistical baseline:</strong> Compares against cluster performance</li>
+					<li><strong>Early detection:</strong> Catches partial degradation quickly</li>
+					<li><strong>Fast response:</strong> 2-5 seconds typical</li>
+				</ul>
+			</div>
+		</div>
+
+		<h2>🔧 Technical Details</h2>
+		
+		<p><strong>Built with:</strong> React 18 + TypeScript, Framer Motion animations, Zustand state management, Tailwind CSS styling</p>
+		
+		<p><strong>Failure Types Simulated:</strong></p>
+		<ul>
+			<li><strong>Latency Spike:</strong> Node responds but 5-10x slower than baseline</li>
+			<li><strong>Error Rate:</strong> Node drops percentage of requests randomly</li>
+			<li><strong>Partial Failure:</strong> Mix of increased latency and dropped requests</li>
+		</ul>
+
+		<div class="links">
+			<h2>🔗 Links</h2>
+			<ul>
+				<li><a href="/demos/grey-failure-detector.html" target="_blank">🚀 Open Demo in New Tab</a></li>
+				<li><a href="https://github.com/gpclaws/grey-failure-detector" target="_blank">💻 View Source Code</a></li>
+				<li><a href="/demos/grey-failure-detector.html" download="grey-failure-detector.html">📥 Download Standalone Version</a></li>
+			</ul>
+		</div>
+
+		<p class="closing">
+			<em>
+				"The best way to understand distributed systems is to build them, break them, and monitor them. 
+				This demo lets you do all three safely."
+			</em>
+		</p>
+	</div>
+</Layout>
+
+<style>
+	.lead {
+		font-size: 1.25rem;
+		color: #64748b;
+		margin-bottom: 2rem;
+		line-height: 1.7;
+	}
+
+	.demo-container {
+		margin: 2rem 0;
+	}
+
+	.demo-info {
+		margin-top: 2rem;
+	}
+
+	.concepts-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		margin: 1.5rem 0;
+	}
+
+	.concept {
+		padding: 1.5rem;
+		border: 1px solid #e5e7eb;
+		border-radius: 8px;
+		background: #f8fafc;
+	}
+
+	.concept h3 {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		color: #334155;
+	}
+
+	.concept ul {
+		margin: 0;
+		padding-left: 1rem;
+	}
+
+	.concept li {
+		margin-bottom: 0.5rem;
+		color: #64748b;
+	}
+
+	blockquote {
+		background: #f1f5f9;
+		border-left: 4px solid #3b82f6;
+		padding: 1rem 1.5rem;
+		margin: 1.5rem 0;
+		font-style: italic;
+	}
+
+	.links ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.links li {
+		margin: 0.5rem 0;
+	}
+
+	.links a {
+		color: #3b82f6;
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+	.links a:hover {
+		text-decoration: underline;
+	}
+
+	.closing {
+		margin-top: 2rem;
+		padding-top: 2rem;
+		border-top: 1px solid #e5e7eb;
+		text-align: center;
+		color: #64748b;
+	}
+
+	@media (max-width: 768px) {
+		.concepts-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.demo-container iframe {
+			height: 600px;
+		}
+	}
+</style>
