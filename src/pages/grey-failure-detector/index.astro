@@ -12,15 +12,36 @@ import Layout from '../../layouts/BlogPost.astro';
 		that hurt users most. Built from real experience managing health systems at AWS Lambda scale (~1M instances).
 	</p>
 
-	<div class="demo-container">
-		<iframe 
-			src="/jimby-blog/demos/grey-failure-detector.html" 
-			width="100%" 
-			height="800px"
-			frameborder="0"
-			style="border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
-			title="Grey Failure Detector Interactive Demo">
-		</iframe>
+	<!-- Demo Section - Prominent Display -->
+	<div class="demo-section">
+		<h2 class="demo-title">🎮 Interactive Demo</h2>
+		<p class="demo-subtitle">
+			Click any node to inject failures • Watch traditional vs statistical detection • See the gap in real-time
+		</p>
+		
+		<div class="demo-container">
+			<iframe 
+				src="/jimby-blog/demos/grey-failure-detector.html" 
+				width="100%" 
+				height="900px"
+				frameborder="0"
+				style="border: 2px solid #3b82f6; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);"
+				title="Grey Failure Detector Interactive Demo">
+			</iframe>
+		</div>
+
+		<div class="demo-instructions">
+			<div class="instruction-card">
+				<h3>🎯 Quick Start</h3>
+				<ol>
+					<li>Select any <strong>node</strong> in the cluster (click the circles)</li>
+					<li>Choose <strong>"Latency Spike"</strong> failure type</li>
+					<li>Set intensity to <strong>~70%</strong></li>
+					<li>Click <strong>"Inject Failure"</strong></li>
+					<li>Watch the detection comparison panels</li>
+				</ol>
+			</div>
+		</div>
 	</div>
 
 	<div class="demo-info">
@@ -116,12 +137,74 @@ import Layout from '../../layouts/BlogPost.astro';
 		line-height: 1.7;
 	}
 
+	.demo-section {
+		background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+		border-radius: 16px;
+		padding: 2.5rem;
+		margin: 2rem 0 3rem 0;
+		border: 1px solid #e2e8f0;
+	}
+
+	.demo-title {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #1e293b;
+		text-align: center;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.demo-subtitle {
+		font-size: 1.1rem;
+		color: #64748b;
+		text-align: center;
+		margin-bottom: 2rem;
+		font-style: italic;
+	}
+
 	.demo-container {
-		margin: 2rem 0;
+		margin: 0 0 2rem 0;
+		position: relative;
+	}
+
+	.demo-container iframe {
+		background: white;
+		display: block;
+	}
+
+	.demo-instructions {
+		display: flex;
+		justify-content: center;
+		margin-top: 1.5rem;
+	}
+
+	.instruction-card {
+		background: white;
+		border: 1px solid #e2e8f0;
+		border-radius: 12px;
+		padding: 1.5rem;
+		max-width: 500px;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.instruction-card h3 {
+		margin: 0 0 1rem 0;
+		color: #1e293b;
+		font-size: 1.1rem;
+	}
+
+	.instruction-card ol {
+		margin: 0;
+		padding-left: 1.2rem;
+		color: #475569;
+	}
+
+	.instruction-card li {
+		margin-bottom: 0.5rem;
+		line-height: 1.5;
 	}
 
 	.demo-info {
-		margin-top: 2rem;
+		margin-top: 3rem;
 	}
 
 	.concepts-grid {
@@ -194,8 +277,25 @@ import Layout from '../../layouts/BlogPost.astro';
 			grid-template-columns: 1fr;
 		}
 		
+		.demo-section {
+			padding: 1.5rem;
+			margin: 1.5rem 0;
+		}
+
+		.demo-title {
+			font-size: 1.5rem;
+		}
+
+		.demo-subtitle {
+			font-size: 1rem;
+		}
+		
 		.demo-container iframe {
-			height: 600px;
+			height: 700px;
+		}
+
+		.instruction-card {
+			padding: 1rem;
 		}
 	}
 </style>
